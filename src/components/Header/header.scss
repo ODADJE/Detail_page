@@ -1,0 +1,19 @@
+.Header{
+    display: flex;
+    height: 20vh;
+    border-bottom: 0.5px solid lightblue;
+
+
+    .left{
+        display: flex;
+        align-items: center;
+        gap: 60px;
+        width: 50%;
+    }
+    .right{
+        display: flex;
+        justify-content: end;
+        width: 50%;
+    }
+
+}

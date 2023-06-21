@@ -1,0 +1,19 @@
+.Navbar{
+    display: flex;
+    font-size: 18px;
+    color: gray;
+
+    .menu{
+        display: flex;
+        gap: 20px;
+
+        .menuItem{
+            display: inline-block;
+
+            &:hover{
+                color: lightblue;
+                cursor: pointer;
+            }
+        }
+    }
+}
