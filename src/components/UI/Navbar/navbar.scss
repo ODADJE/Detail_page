@@ -11,7 +11,8 @@
             display: inline-block;
 
             &:hover{
-                color: lightblue;
+                color: blueviolet;
+                text-decoration: underline;
                 cursor: pointer;
             }
         }

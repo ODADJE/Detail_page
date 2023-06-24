@@ -1,17 +1,15 @@
 import "./addButton.scss";
-import Button from "@mui/material/Button";
-
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
-function AddButton() {
+
+type buttonAdd = {
+  onClick: () => void;
+};
+function AddButton(props: buttonAdd) {
   return (
     <div className="AddButton">
-      <Button
-        variant="contained"
-        startIcon={<ShoppingCartOutlinedIcon />}
-        className="button"
-      >
-        Add to cart
-      </Button>
+      <button className="button" onClick={props.onClick}>
+        <ShoppingCartOutlinedIcon /> ADD TO CART
+      </button>
     </div>
   );
 }

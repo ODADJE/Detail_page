@@ -2,8 +2,48 @@
    width: 100%;
     display: flex;
     justify-content: center;
+    background-color: rgba(218, 214, 214, 0.933);
 
    .container{
-    width: 80%;
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+
+
+    .presentation{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      width: 100%;
+      height: 90vh;
+      
+
+      .imageSection{
+         width: 50%;
+         display: flex;
+         flex-direction: column;
+         gap: 20px;
+         align-items: center;
+         justify-content: center;
+        
+
+         .imagecardDiv{
+            display: flex;
+            gap: 10px;
+         }
+      }
+      .descriptionSection{
+         width: 50%;
+         display: flex;
+         // align-items: center;
+        
+      }
+
+    }
    }
+
+
 }

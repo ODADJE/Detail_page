@@ -1,0 +1,27 @@
+.NumberButton {
+    font-weight: bold;
+    width: 100%;
+    flex: 2;
+    .button {
+        background-color: rgb(219, 217, 217);
+        height:5vh;
+        width: 100%;
+        border-radius: 10px;
+        border: 0.5px solid lightgray;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 6px 6px 6px;
+        &:hover{
+            border-color: blueviolet;
+        }
+        .sign{
+            color: blueviolet;
+            font-size: 25px;
+            cursor: pointer;
+        }
+        .number{
+            font-size: 20px;
+        }
+    }
+}
