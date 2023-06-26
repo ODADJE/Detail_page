@@ -10,7 +10,10 @@ function NumberButton() {
         return Number(localStorage.getItem("articleNumber")!);
       });
     } else {
-      setCount(0);
+      setCount((pre_count) => {
+        localStorage.setItem("articleNumber", pre_count.toString());
+        return pre_count;
+      });
     }
   }, []);
 

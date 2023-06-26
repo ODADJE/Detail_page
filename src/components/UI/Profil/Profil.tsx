@@ -42,7 +42,6 @@ function Profil(panier: ShopProps) {
           />
         </Badge>
       </Stack>
-      {/* <img src={profil} alt="" /> */}
       <Button
         id="basic-button"
         aria-controls={open ? "basic-menu" : undefined}

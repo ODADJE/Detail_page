@@ -1,5 +1,5 @@
 import Description from "../../components/Description/Description";
-import Header from "../../components/Header/Header";
+import Header from "components/Header/Header";
 import Image from "../../components/Image/Image";
 import ImageCard from "../../components/UI/ImageCard/ImageCard";
 import mainImage from "../../assets/Main-sneaker.jpg";
@@ -20,6 +20,7 @@ const images = [
   { img: image2, click: false, alt: "image2" },
   { img: image3, click: false, alt: "image3" },
 ];
+
 const data = {
   enterprise: "SNEAKER COMPANY",
   productName: "Fall Limited Edition Sneakers",
@@ -29,6 +30,7 @@ const data = {
   realPrice: "$250.00",
   displaybButton: true,
 };
+
 function DetailPage() {
   const [count, setCount] = useState(0);
   const [mainImg, setMainImg] = useState(mainImage);

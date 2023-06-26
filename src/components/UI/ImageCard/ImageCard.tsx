@@ -1,6 +1,4 @@
-import { click } from "@testing-library/user-event/dist/click";
 import "./imagecard.scss";
-//import mainImage from "../../../assets/Main-sneaker.jpg";
 
 type CardProps = {
   img: string;
@@ -10,10 +8,9 @@ type CardProps = {
 };
 
 function ImageCard({ img, click, alt, onClick }: CardProps) {
-  let setBorder = "";
-  click ? (setBorder = "setBorder") : (setBorder = "");
+  let setBorder = click ? "setBorder" : "";
   return (
-    <div className="ImageCard">
+    <div className="ImageCard" key={alt}>
       <img src={img} alt={alt} onClick={onClick} className={setBorder} />
     </div>
   );
