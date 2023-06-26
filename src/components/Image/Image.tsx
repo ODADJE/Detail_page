@@ -1,5 +1,4 @@
 import "./image.scss";
-import Mainsneaker from "../../assets/Main-sneaker.jpg";
 type Imageprops = {
   image: string;
 };

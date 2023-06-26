@@ -1,43 +1,22 @@
-import { useEffect, useState } from "react";
 import "./numberButton.scss";
 
-function NumberButton() {
-  const [count, setCount] = useState(1);
-
-  useEffect(() => {
-    if (localStorage.getItem("articleNumber")) {
-      setCount(() => {
-        return Number(localStorage.getItem("articleNumber")!);
-      });
-    } else {
-      setCount((pre_count) => {
-        localStorage.setItem("articleNumber", pre_count.toString());
-        return pre_count;
-      });
-    }
-  }, []);
-
-  const handleClickMinus = () => {
-    count > 1 &&
-      setCount((pre_count) => {
-        localStorage.setItem("articleNumber", (pre_count - 1).toString());
-        return pre_count - 1;
-      });
-  };
-
-  const handleClickAdding = () => {
-    setCount((pre_count) => {
-      localStorage.setItem("articleNumber", (pre_count + 1).toString());
-      return pre_count + 1;
-    });
-  };
+interface NumberButtonProps {
+  handleClickMinus: () => void;
+  handleClickAdding: () => void;
+  productNumber: number;
+}
+function NumberButton({
+  handleClickMinus,
+  handleClickAdding,
+  productNumber,
+}: NumberButtonProps) {
   return (
     <div className="NumberButton">
       <button className="button">
         <span className="sign" onClick={handleClickMinus}>
           -
         </span>
-        <span className="number">{count}</span>
+        <span className="number">{productNumber}</span>
         <span className="sign" onClick={handleClickAdding}>
           +
         </span>

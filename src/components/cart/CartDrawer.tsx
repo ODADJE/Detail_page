@@ -1,33 +1,33 @@
-import AddButton from "components/UI/Buttons/AddButton";
-import NumberButton from "components/UI/Buttons/NumberButton";
-import { useState } from "react";
-import { Product } from "types";
+import { Drawer } from "antd";
 
-interface AddToCartProps {
-  product: Product;
+interface CardDrawerProps {
+  onClose: () => void;
+  isOpen: boolean;
 }
 
-export default function AddToCart({ product }: AddToCartProps) {
-  const [count, setCount] = useState(0);
-
-  const increment = () => {
-    if (count === 0) {
-      setCount((count_c) => {
-        localStorage.setItem("articlepanier", (count_c + 1).toString());
-        return count_c + 1;
-      });
-    } else {
-      setCount((count_c) => {
-        localStorage.setItem("articlepanier", (count_c - 1).toString());
-        return count_c - 1;
-      });
-    }
-  };
-
+export default function CartDrawer({ onClose, isOpen }: CardDrawerProps) {
+  let theCard = JSON.parse(localStorage.getItem("theCard")!);
   return (
-    <div className="buttons">
-      <NumberButton />
-      <AddButton onClick={increment} />
+    <div className="cartDrawer">
+      <Drawer
+        title="Shoppin List"
+        placement="right"
+        onClose={onClose}
+        open={isOpen}
+      >
+        {theCard ? (
+          <div>
+            <p>{theCard.enterprise}</p>
+            <p>{theCard.productName}</p>
+            <p>Nombre: {theCard.productNumber}</p>
+            {/* <button className="cancel" onClick={panier.onclick}>
+              Cancel
+            </button> */}
+          </div>
+        ) : (
+          <p>Panier vide</p>
+        )}
+      </Drawer>
     </div>
   );
 }

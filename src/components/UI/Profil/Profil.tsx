@@ -7,26 +7,27 @@ import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
-import { Drawer } from "antd";
 import React, { useState } from "react";
+import CartDrawer from "components/cart/CartDrawer";
 
 function Profil() {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
-  const [dopen, setDopen] = useState(false);
+  const [view, setView] = useState(false);
   const open = Boolean(anchorEl);
   const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
     setAnchorEl(event.currentTarget);
   };
+
   const handleClose = () => {
     setAnchorEl(null);
   };
 
   const showDrawer = () => {
-    setDopen(true);
+    setView(true);
   };
 
   const onClose = () => {
-    setDopen(false);
+    setView(false);
   };
   return (
     <div className="Profil">
@@ -72,26 +73,7 @@ function Profil() {
           Logout
         </MenuItem>
       </Menu>
-
-      <Drawer
-        title="Shoppin List"
-        placement="right"
-        onClose={onClose}
-        open={dopen}
-      >
-        {localStorage.getItem("articlepanier") ? (
-          <div>
-            <p>SNEAKER COMPANY</p>
-            <p>Fall Limited Edition Sneakers</p>
-            <p>Nombre: {localStorage.getItem("articleNumber")!}</p>
-            {/* <button className="cancel" onClick={panier.onclick}>
-              Cancel
-            </button> */}
-          </div>
-        ) : (
-          <p>Panier vide</p>
-        )}
-      </Drawer>
+      <CartDrawer onClose={onClose} isOpen={view} />
     </div>
   );
 }
