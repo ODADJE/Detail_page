@@ -9,11 +9,8 @@ import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import { Drawer } from "antd";
 import React, { useState } from "react";
-type ShopProps = {
-  shompNumber: number;
-  onclick: () => void;
-};
-function Profil(panier: ShopProps) {
+
+function Profil() {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const [dopen, setDopen] = useState(false);
   const open = Boolean(anchorEl);
@@ -34,7 +31,10 @@ function Profil(panier: ShopProps) {
   return (
     <div className="Profil">
       <Stack spacing={2} direction="row">
-        <Badge badgeContent={panier.shompNumber} color="secondary">
+        <Badge
+          badgeContent={Number(localStorage.getItem("articlepanier")!)}
+          color="secondary"
+        >
           <ShoppingCartOutlinedIcon
             color="action"
             className="shop"
@@ -79,14 +79,14 @@ function Profil(panier: ShopProps) {
         onClose={onClose}
         open={dopen}
       >
-        {panier.shompNumber ? (
+        {localStorage.getItem("articlepanier") ? (
           <div>
             <p>SNEAKER COMPANY</p>
             <p>Fall Limited Edition Sneakers</p>
             <p>Nombre: {localStorage.getItem("articleNumber")!}</p>
-            <button className="cancel" onClick={panier.onclick}>
+            {/* <button className="cancel" onClick={panier.onclick}>
               Cancel
-            </button>
+            </button> */}
           </div>
         ) : (
           <p>Panier vide</p>

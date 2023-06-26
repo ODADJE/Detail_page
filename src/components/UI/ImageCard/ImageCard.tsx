@@ -1,17 +1,26 @@
 import "./imagecard.scss";
 
-type CardProps = {
-  img: string;
-  click: boolean;
-  alt: string;
-  onClick: (event: React.MouseEvent<HTMLImageElement>) => void;
+type ImageCardProps = {
+  path: string;
+  selected: boolean;
+  onClick: (selectedPath: string) => void;
 };
 
-function ImageCard({ img, click, alt, onClick }: CardProps) {
-  let setBorder = click ? "setBorder" : "";
+function ImageCard({ path, selected, onClick }: ImageCardProps) {
+  let setBorder = selected ? "setBorder" : "";
+
+  const handleClick = () => {
+    onClick(path);
+  };
+
   return (
-    <div className="ImageCard" key={alt}>
-      <img src={img} alt={alt} onClick={onClick} className={setBorder} />
+    <div className="ImageCard">
+      <img
+        src={path}
+        alt="Product"
+        onClick={handleClick}
+        className={setBorder}
+      />
     </div>
   );
 }
